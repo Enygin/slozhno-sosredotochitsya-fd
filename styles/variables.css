@@ -1,25 +1,28 @@
-/*
-  Переменные для вашего проекта
-  и их переопределение под различные устройства
-*/
-
 :root {
-  --cover-image-dark: url('../images/cover-image-dark.png');
-  --cover-image-light: url('../images/cover-image-light.png');
-
-  
-
+  --cover-image: url('../images/cover-image-dark.png');
+ 
   --night-blue: rgba(0, 0, 40, 1);
   --red: rgba(255, 0, 112, 1);
+  --red-transparent: rgba(255, 0, 112, 0.4);
   --light-pink: rgba(241, 178, 206, 1);
   --purple: rgba(219, 0, 255, 1);
   --white: white;
 
+  --decotated-zone-colour: var(--red);
   --title-colour: var(--night-blue);
   --title-background-colour: var(--red);
   --section-title-colour: var(--red);
   --main-text-colour: var(--light-pink);
   --main-title-colour: var(--purple);
-  --accent-color: var(--red);
+  --accent-colour: var(--red);
+
+  --menu-colour: var(--red);
+  --hover-menu-color: var(--red-transparent);
+
+  --main-font-size: 18px;
+  --main-lineheight: 23.4px;
+
+  --decor-line-size: 25px;
+  --decor-element: flex;
 }
 

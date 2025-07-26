@@ -1,14 +1,19 @@
-/*
-  Специально для тёмной темы при наличии класса,
-  здесь окажутся стили, которые нужно переопределить принудительно,
-  переключая тему
-*/
-
 :root.theme-dark {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+
+  --cover-image: url('../images/cover-image-dark.png');
+
+  --title-colour: var(--night-blue);
+  --title-background-colour: var(--red);
+  --section-title-colour: var(--red);
+  --main-text-colour: var(--light-pink);
+  --main-title-colour: var(--purple);
+  --accent-colour: var(--red);
+  --menu-colour: var(--red);
+  --hover-menu-color: var(--red-transparent);
+
+  --decor-line-size: 25px;
+  --decor-element: flex;
+
 }
 
 .theme-dark .page {
