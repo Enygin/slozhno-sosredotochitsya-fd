@@ -1,6 +1,6 @@
 .page {
   background-image: var(--cover-image);
-  background-color: var(--night-blue);
+  background-color: var(--bg-colour);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -10,8 +10,12 @@
 
 .header {
   display: grid;
-  align-items: start;
+  grid-template-rows: 1fr 1.7fr 1fr;
+  align-items: center;
   height: 100vh;
+  min-block-size: calc(668px - clamp(0.625rem, 2.545vw + 0.029rem, 1.25rem));
+  max-block-size: calc(100vh - calc(clamp(0.625rem, 2.545vw + 0.029rem, 1.25rem) * 2));
+  margin-bottom: 40px;
 }
 
 .decorated-zone {
@@ -19,9 +23,7 @@
 }
 
 .decorated-zone::before,
-.decorated-zone::after,
-.footer::after,
-.footer::before {
+.decorated-zone::after {
   position: absolute;
   content: '';
   display: block;
@@ -29,27 +31,25 @@
   height: 25px;
 }
 
-.decorated-zone::before,
-.footer::before {
+.decorated-zone::before {
   border-top: 1px solid var(--decotated-zone-colour);
   border-right: 1px solid var(--decotated-zone-colour);
   right: 0px;
   top: 0px;
 }
 
-.decorated-zone::after,
-.footer::after {
+.decorated-zone::after {
   border-bottom: 1px solid var(--decotated-zone-colour);
   border-left: 1px solid var(--decotated-zone-colour);
   left: 0px;
-  bottom: 0px;
+  bottom: 0;
 }
 
 .header__decorated-element {
   display: var(--decor-element);
   align-items: center;
   position: absolute;
-  top: 3px;
+  top: 2px;
   right: 9px;
   gap: 11px;
 }
@@ -65,10 +65,11 @@
 
 .header__decorated-element-style {
   color: var(--decotated-zone-colour);
+  line-height: 25px;
 }
 
 .header__theme-menu {
-  align-self: center;
+  align-self: end;
   justify-self: end;
 }
 
@@ -91,7 +92,7 @@
 
 .header__theme-menu-button:hover {
   padding-inline-start: 12px;
-  outline: solid 1px var(--hover-menu-color);
+  outline: solid 1px var(--hover-menu-colour);
 }
 
 .header__theme-menu-button:focus {
@@ -116,6 +117,10 @@
   line-height: 83%;
 }
 
+.header__text {
+  align-self: start;
+}
+
 .title-decor {
   background-color: var(--title-background-colour);
   color: var(--title-colour);
@@ -129,6 +134,7 @@
 
 .content__section {
   display: grid;
+  gap: 20px;
   line-height: var(--main-lineheight);
 }
 
@@ -163,7 +169,7 @@
 
 .link-style {
   text-decoration: none;
-  text-shadow: 2px 2px 0 var(--accent-colour);
+  text-shadow: 2px 2px 0 var(--link-text-shadow-colour);
 }
 
 .link-style:hover {
@@ -175,28 +181,12 @@
 }
 
 .link-style:focus-visible {
-  outline: 1px solid var(--main-text-color);
+  outline: 1px solid var(--main-text-colour);
 }
 
-.content__section-difficulties {
-  display: grid;
-  gap: 20px;
+.content__section-gallery {
+  gap: clamp(0.625rem, 2.545vw + 0.029rem, 1.25rem);
 }
-
-.content__section-factors {
-  display: grid;
-  gap: 20px;
-}
-
-.content__section-recommendations {
-  display: grid;
-  gap: 20px;
-}
-
-.content__section-recommendations .content__section-item:first-of-type,
-.content__section-recommendations .content__section-item:last-of-type {
-    gap: clamp(0.625rem, 2.545vw + 0.029rem, 1.25rem);
-  }
 
 .gallery {
   display: grid;
@@ -217,6 +207,8 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
+  min-block-size: calc(668px - clamp(0.625rem, 2.545vw + 0.029rem, 1.25rem));
+  max-block-size: calc(100vh - calc(clamp(0.625rem, 2.545vw + 0.029rem, 1.25rem) * 2));
 }
 
 .footer .main-title {
@@ -225,17 +217,42 @@
 
 @media (width >= 768px) {
 
+  .header {
+    margin-bottom: 60px;
+  }
+
   .main-title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    margin-left: -20px;
   }
 
   .header__text {
     justify-self: end;
+    max-inline-size: 50%;
   }
 
   .content__section-list {
     margin-bottom: 80px;
   }
+
+
+
+  /* Здесь получил следующий комментарий от ревьюера:
+  "Стилизация секций с карточками однотипна, более точным решением 
+  использовать общую сущность для совмещения однотипной стилизации 
+  (например общий класс section/content-section).
+  Переиспользование стилизации ускоряет разработку, устраняя необходимость 
+  переписывать код для каждого элемента. Это создает единый визуальный стиль 
+  и упрощает поддержку кода, так как изменения в одном элементе применяются 
+  ко всем аналогичным. Переиспользование стилей уменьшает размер CSS-файлов, 
+  что ускоряет загрузку страниц и уменьшает время рендеринга. 
+  Сокращение дублирования кода делает CSS-файлы более компактными, удобными 
+  для поддержки и оптимизированными для работы браузеров."
+
+  Здесь я переопределял не все карточки, а только те, что меняются при 
+  брекпоинте. Все карточки не должны выстраивать контент в две колонки.
+  Полагаю, в этои комментарии ревьюера произошла техническая ошибка.
+  Похожее замечание было в общем блоке стилей для всех брекпоинтов. Там поправил */
 
   .content__section-difficulties {
     grid-template-columns: 1fr 2fr;

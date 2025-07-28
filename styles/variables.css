@@ -6,8 +6,8 @@
   --red-transparent: rgba(255, 0, 112, 0.4);
   --light-pink: rgba(241, 178, 206, 1);
   --purple: rgba(219, 0, 255, 1);
-  --white: white;
 
+  --bg-colour: var(--night-blue);
   --decotated-zone-colour: var(--red);
   --title-colour: var(--night-blue);
   --title-background-colour: var(--red);
@@ -15,9 +15,10 @@
   --main-text-colour: var(--light-pink);
   --main-title-colour: var(--purple);
   --accent-colour: var(--red);
+  --link-text-shadow-colour: var(--red);
 
   --menu-colour: var(--red);
-  --hover-menu-color: var(--red-transparent);
+  --hover-menu-colour: var(--red-transparent);
 
   --main-font-size: 18px;
   --main-lineheight: 23.4px;
@@ -25,4 +26,3 @@
   --decor-line-size: 25px;
   --decor-element: flex;
 }
-

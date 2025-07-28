@@ -1,15 +1,19 @@
 :root.theme-dark {
 
   --cover-image: url('../images/cover-image-dark.png');
+  --bg-colour: var(--night-blue);
 
+  --decotated-zone-colour: var(--red);
   --title-colour: var(--night-blue);
   --title-background-colour: var(--red);
   --section-title-colour: var(--red);
+
   --main-text-colour: var(--light-pink);
   --main-title-colour: var(--purple);
   --accent-colour: var(--red);
+  
   --menu-colour: var(--red);
-  --hover-menu-color: var(--red-transparent);
+  --hover-menu-colour: var(--red-transparent);
 
   --decor-line-size: 25px;
   --decor-element: flex;

@@ -1,13 +1,20 @@
 :root.theme-light {
   --cover-image: url('../images/cover-image-light.png');
+  --bg-colour: rgba(255, 241, 247, 1);
+
   --decotated-zone-colour: rgba(53, 52, 48, 1);
   --title-colour: rgba(53, 52, 48, 1);
   --title-background-colour: rgba(255, 141, 203, 1);
   --section-title-colour: rgba(53, 52, 48, 1);
+
   --main-text-colour: rgba(53, 52, 48, 1);
   --main-title-colour: rgba(255, 194, 230, 1);
   --accent-colour: rgba(255, 141, 203, 1);
+  --link-text-shadow-colour: rgba(255, 141, 203, 1);
+
   --menu-colour: rgba(53, 52, 48, 1);
+  --hover-menu-colour: rgba(50, 49, 45, 0.4);
+
   --decor-element: none;
 }
 
@@ -20,14 +27,21 @@
 @media (prefers-color-scheme: light) {
   :root {
   --cover-image: url('../images/cover-image-light.png');
+  --bg-colour: rgba(255, 241, 247, 1);
+
   --decotated-zone-colour: rgba(53, 52, 48, 1);
   --title-colour: rgba(53, 52, 48, 1);
   --title-background-colour: rgba(255, 141, 203, 1);
   --section-title-colour: rgba(53, 52, 48, 1);
+  
   --main-text-colour: rgba(53, 52, 48, 1);
   --main-title-colour: rgba(255, 194, 230, 1);
   --accent-colour: rgba(255, 141, 203, 1);
+  --link-text-shadow-colour: rgba(255, 141, 203, 1);
+
   --menu-colour: rgba(53, 52, 48, 1);
+  --hover-menu-colour: rgba(50, 49, 45, 0.4);
+  
   --decor-element: none;
   }
 
@@ -37,3 +51,4 @@
     }
   }
 }
+
